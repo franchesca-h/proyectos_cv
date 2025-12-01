@@ -134,23 +134,68 @@ servicios-module-portfolio/
     └── web.php                                # Rutas de ambos módulos
 ```
 
-## 🚀 Instalación
+## 🚀 Instalación Rápida
 
-1. Copia los archivos en tu proyecto Laravel existente
+### Opción 1: Script Automático (Recomendado)
 
-2. Instala las dependencias necesarias:
+**Windows (PowerShell):**
+```powershell
+.\setup.ps1
+```
+
+**Linux/Mac:**
+```bash
+chmod +x setup.sh
+./setup.sh
+```
+
+### Opción 2: Manual
+
+1. **Copia los archivos** en tu proyecto Laravel existente
+
+2. **Instala las dependencias:**
 ```bash
 composer require google/apiclient
 ```
 
-3. Ejecuta las migraciones:
+3. **Configura la base de datos** en `.env`:
+```env
+DB_CONNECTION=sqlite
+```
+
+4. **Crea la base de datos SQLite:**
+```bash
+touch database/database.sqlite
+```
+
+5. **Ejecuta las migraciones:**
 ```bash
 php artisan migrate
 ```
 
-4. Para usar Google Meet, configura las credenciales (ver `GOOGLE_MEET_SETUP.md`)
+6. **Crea un usuario administrador:**
+```bash
+php artisan tinker
+```
+```php
+$user = new App\Models\User();
+$user->name = 'Admin Test';
+$user->email = 'admin@test.com';
+$user->password = bcrypt('password');
+$user->roles_id = 1;
+$user->save();
+```
 
-5. Asegúrate de tener configurado el sistema de autenticación y roles en tu aplicación
+7. **Inicia el servidor:**
+```bash
+php artisan serve
+```
+
+### Notas
+
+- Los layouts básicos (`app.blade.php` y `app_welcome.blade.php`) están incluidos
+- La migración de roles se ejecutará automáticamente
+- Para usar Google Meet, configura las credenciales (ver `GOOGLE_MEET_SETUP.md`)
 
 ## 📝 Uso
 
