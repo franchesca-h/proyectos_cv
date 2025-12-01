@@ -1,0 +1,31 @@
+# Laravel
+/vendor/
+/node_modules/
+/public/hot
+/public/storage
+/storage/*.key
+/.env
+/.env.backup
+/.env.production
+/.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/.idea
+/.vscode
+
+# Google Service Account Credentials (NUNCA subir a Git)
+/storage/app/google/*.json
+/storage/app/google-credentials.json
+/storage/app/google-meet-credentials.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+/storage/logs/*.log
+
+
